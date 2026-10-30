@@ -1,0 +1,452 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080808">
+<title>DAXEN | Official Store</title>
+<meta name="description" content="DAXEN — Moda urbana, estilo y personalidad. Descubre nuestra colección.">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  --black:#080808;
+  --panel:#111111;
+  --white:#f5f5f5;
+  --gray:#999;
+  --line:#252525;
+  --green:#25d366;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--black);
+  color:var(--white);
+  font-family:'DM Sans',sans-serif;
+}
+a{text-decoration:none;color:inherit}
+button{font:inherit}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:20;
+  background:rgba(8,8,8,.92);
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid var(--line);
+}
+.nav{
+  max-width:1250px;
+  margin:auto;
+  padding:20px 5%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.logo{
+  font-family:Montserrat,sans-serif;
+  font-size:27px;
+  font-weight:900;
+  letter-spacing:5px;
+}
+.logo span{color:#888}
+.nav-links{display:flex;gap:30px;font-size:13px;color:#ccc}
+.nav-links a:hover{color:white}
+.menu-button{
+  display:none;
+  background:none;
+  border:0;
+  color:white;
+  font-size:25px;
+}
+
+.hero{
+  min-height:650px;
+  display:flex;
+  align-items:center;
+  padding:80px 8%;
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(ellipse at 80% 40%,#303030 0%,transparent 45%),
+    linear-gradient(120deg,#080808,#171717 60%,#080808);
+}
+.hero:after{
+  content:"DAXEN";
+  position:absolute;
+  right:-20px;
+  bottom:-70px;
+  font-family:Montserrat,sans-serif;
+  font-weight:900;
+  font-size:clamp(100px,24vw,330px);
+  color:rgba(255,255,255,.035);
+  pointer-events:none;
+}
+.hero-content{max-width:700px;position:relative;z-index:1}
+.eyebrow{
+  color:#aaa;
+  letter-spacing:5px;
+  font-size:11px;
+  text-transform:uppercase;
+  margin-bottom:25px;
+}
+.hero h1{
+  font-family:Montserrat,sans-serif;
+  font-size:clamp(55px,10vw,115px);
+  line-height:.95;
+  font-weight:900;
+  letter-spacing:-5px;
+}
+.hero h1 span{color:#777}
+.hero p{
+  color:#aaa;
+  max-width:430px;
+  line-height:1.8;
+  margin:28px 0;
+  font-size:15px;
+}
+.primary-btn{
+  display:inline-block;
+  background:white;
+  color:black;
+  padding:16px 27px;
+  font-weight:800;
+  font-size:12px;
+  letter-spacing:1px;
+  transition:.3s;
+}
+.primary-btn:hover{background:#bbb;transform:translateY(-3px)}
+
+.section{
+  max-width:1250px;
+  margin:auto;
+  padding:100px 5%;
+}
+.section-heading{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:20px;
+  margin-bottom:40px;
+}
+.section-heading h2{
+  font-family:Montserrat,sans-serif;
+  font-size:clamp(30px,5vw,48px);
+  font-weight:800;
+}
+.section-heading p{color:var(--gray);font-size:13px}
+
+.categories{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+  margin-bottom:75px;
+}
+.category{
+  min-height:170px;
+  background:linear-gradient(140deg,#252525,#101010);
+  border:1px solid var(--line);
+  display:flex;
+  align-items:end;
+  padding:25px;
+  transition:.3s;
+}
+.category:hover{background:#303030;transform:translateY(-4px)}
+.category h3{
+  font-family:Montserrat,sans-serif;
+  font-size:19px;
+  letter-spacing:2px;
+}
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
+.product{min-width:0}
+.product-image{
+  aspect-ratio:4/5;
+  background:
+    radial-gradient(ellipse at 50% 35%,#444 0%,#222 38%,#111 75%);
+  border:1px solid #292929;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  position:relative;
+}
+.product-image:after{
+  content:"DAXEN";
+  font-family:Montserrat,sans-serif;
+  font-weight:900;
+  letter-spacing:8px;
+  font-size:25px;
+  color:rgba(255,255,255,.15);
+}
+.product-image small{
+  position:absolute;
+  bottom:18px;
+  color:#aaa;
+  font-size:10px;
+  letter-spacing:2px;
+}
+.product-info{padding:17px 2px}
+.product-info h3{font-size:15px;font-weight:600;margin-bottom:8px}
+.price{font-size:15px;font-weight:800}
+.size{color:#888;font-size:11px;margin-top:7px}
+.product-button{
+  display:block;
+  text-align:center;
+  border:1px solid #555;
+  padding:12px;
+  margin-top:15px;
+  font-size:11px;
+  letter-spacing:1px;
+  transition:.3s;
+}
+.product-button:hover{background:white;color:black;border-color:white}
+
+.notice{
+  border:1px solid var(--line);
+  background:#101010;
+  padding:25px;
+  margin-top:45px;
+  color:#aaa;
+  font-size:13px;
+  line-height:1.8;
+}
+.notice strong{color:white}
+
+.about{
+  background:#111;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  padding:85px 8%;
+  text-align:center;
+}
+.about h2{
+  font-family:Montserrat,sans-serif;
+  font-size:clamp(32px,6vw,60px);
+  font-weight:900;
+  letter-spacing:3px;
+}
+.about p{
+  max-width:570px;
+  margin:20px auto 0;
+  color:#aaa;
+  line-height:1.9;
+  font-size:14px;
+}
+
+.contact{
+  text-align:center;
+  padding:90px 5%;
+}
+.contact h2{
+  font-family:Montserrat,sans-serif;
+  font-size:clamp(30px,6vw,55px);
+}
+.contact p{color:#999;margin:18px auto 28px;max-width:450px;line-height:1.8}
+.whatsapp{
+  display:inline-block;
+  background:var(--green);
+  color:#07150b;
+  padding:16px 25px;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:1px;
+  transition:.3s;
+}
+.whatsapp:hover{transform:scale(1.04);background:#42e77d}
+
+footer{
+  border-top:1px solid var(--line);
+  padding:30px 5%;
+  text-align:center;
+  color:#777;
+  font-size:11px;
+  letter-spacing:1px;
+}
+footer strong{color:#eee;letter-spacing:3px}
+
+@media(max-width:700px){
+  .nav{padding:17px 5%}
+  .menu-button{display:block}
+  .nav-links{
+    display:none;
+    position:absolute;
+    top:65px;left:0;right:0;
+    background:#101010;
+    padding:25px;
+    flex-direction:column;
+    gap:20px;
+    border-bottom:1px solid var(--line);
+  }
+  .nav-links.active{display:flex}
+  .hero{min-height:570px;padding:70px 7%}
+  .hero h1{letter-spacing:-3px}
+  .section{padding:70px 5%}
+  .categories{grid-template-columns:1fr;gap:10px}
+  .category{min-height:120px}
+  .products{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+  .product-info h3{font-size:13px}
+  .section-heading{align-items:start;flex-direction:column}
+}
+@media(max-width:380px){
+  .products{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <nav class="nav">
+    <a href="#" class="logo">DAXEN<span>.</span></a>
+    <button class="menu-button" onclick="document.querySelector('.nav-links').classList.toggle('active')">☰</button>
+    <div class="nav-links">
+      <a href="#inicio">INICIO</a>
+      <a href="#coleccion">COLECCIÓN</a>
+      <a href="#nosotros">NOSOTROS</a>
+      <a href="#contacto">CONTACTO</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section class="hero" id="inicio">
+    <div class="hero-content">
+      <div class="eyebrow">DAXEN OFFICIAL STORE</div>
+      <h1>DEFINE<br>YOUR <span>STYLE.</span></h1>
+      <p>Una identidad. Una actitud. Tu propio estilo. Descubre DAXEN y encuentra prendas que representan quién eres.</p>
+      <a href="#coleccion" class="primary-btn">DESCUBRIR COLECCIÓN ↗</a>
+    </div>
+  </section>
+
+  <section class="section" id="coleccion">
+    <div class="section-heading">
+      <div>
+        <div class="eyebrow">SELECCIÓN DAXEN</div>
+        <h2>THE COLLECTION.</h2>
+      </div>
+      <p>ESTILO SIN LÍMITES.</p>
+    </div>
+
+    <div class="categories">
+      <a class="category" href="#productos"><h3>TOPS ↗</h3></a>
+      <a class="category" href="#productos"><h3>SETS ↗</h3></a>
+      <a class="category" href="#productos"><h3>DRESSES ↗</h3></a>
+    </div>
+
+    <div class="section-heading" id="productos">
+      <div>
+        <div class="eyebrow">NUESTROS PRODUCTOS</div>
+        <h2>NEW DROPS.</h2>
+      </div>
+      <p>COLECCIÓN DISPONIBLE</p>
+    </div>
+
+    <div class="products">
+
+      <article class="product">
+        <div class="product-image"><small>IMAGEN PRÓXIMAMENTE</small></div>
+        <div class="product-info">
+          <h3>Conjunto negro asimétrico</h3>
+          <div class="price">₡10.000</div>
+          <div class="size">Tallas por confirmar</div>
+          <a class="product-button" href="https://wa.me/50683071066?text=Hola%20DAXEN%2C%20quiero%20consultar%20por%20el%20conjunto%20negro%20asimetrico.">CONSULTAR PRODUCTO ↗</a>
+        </div>
+      </article>
+
+      <article class="product">
+        <div class="product-image"><small>IMAGEN PRÓXIMAMENTE</small></div>
+        <div class="product-info">
+          <h3>Vestido blanco acanalado</h3>
+          <div class="price">₡8.000</div>
+          <div class="size">Tallas por confirmar</div>
+          <a class="product-button" href="https://wa.me/50683071066?text=Hola%20DAXEN%2C%20quiero%20consultar%20por%20el%20vestido%20blanco.">CONSULTAR PRODUCTO ↗</a>
+        </div>
+      </article>
+
+      <article class="product">
+        <div class="product-image"><small>IMAGEN PRÓXIMAMENTE</small></div>
+        <div class="product-info">
+          <h3>Body rosa acanalado</h3>
+          <div class="price">₡10.000</div>
+          <div class="size">Tallas por confirmar</div>
+          <a class="product-button" href="https://wa.me/50683071066?text=Hola%20DAXEN%2C%20quiero%20consultar%20por%20el%20body%20rosa.">CONSULTAR PRODUCTO ↗</a>
+        </div>
+      </article>
+
+      <article class="product">
+        <div class="product-image"><small>IMAGEN PRÓXIMAMENTE</small></div>
+        <div class="product-info">
+          <h3>Conjunto cargo beige</h3>
+          <div class="price">₡18.500</div>
+          <div class="size">Tallas por confirmar</div>
+          <a class="product-button" href="https://wa.me/50683071066?text=Hola%20DAXEN%2C%20quiero%20consultar%20por%20el%20conjunto%20cargo%20beige.">CONSULTAR PRODUCTO ↗</a>
+        </div>
+      </article>
+
+      <article class="product">
+        <div class="product-image"><small>IMAGEN PRÓXIMAMENTE</small></div>
+        <div class="product-info">
+          <h3>Conjunto blanco con franjas</h3>
+          <div class="price">₡17.000</div>
+          <div class="size">Tallas por confirmar</div>
+          <a class="product-button" href="https://wa.me/50683071066?text=Hola%20DAXEN%2C%20quiero%20consultar%20por%20el%20conjunto%20blanco.">CONSULTAR PRODUCTO ↗</a>
+        </div>
+      </article>
+
+      <article class="product">
+        <div class="product-image"><small>IMAGEN PRÓXIMAMENTE</small></div>
+        <div class="product-info">
+          <h3>Conjunto negro con falda</h3>
+          <div class="price">₡15.000</div>
+          <div class="size">Tallas por confirmar</div>
+          <a class="product-button" href="https://wa.me/50683071066?text=Hola%20DAXEN%2C%20quiero%20consultar%20por%20el%20conjunto%20negro%20con%20falda.">CONSULTAR PRODUCTO ↗</a>
+        </div>
+      </article>
+
+      <article class="product">
+        <div class="product-image"><small>IMAGEN PRÓXIMAMENTE</small></div>
+        <div class="product-info">
+          <h3>Conjunto negro cargo</h3>
+          <div class="price">₡16.000</div>
+          <div class="size">Tallas por confirmar</div>
+          <a class="product-button" href="https://wa.me/50683071066?text=Hola%20DAXEN%2C%20quiero%20consultar%20por%20el%20conjunto%20negro%20cargo.">CONSULTAR PRODUCTO ↗</a>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="notice">
+      <strong>INFORMACIÓN IMPORTANTE</strong><br>
+      Este catálogo es una selección de productos y no representa todo nuestro inventario. Consulta por WhatsApp el catálogo completo, disponibilidad, tallas, colores y precios actualizados antes de realizar tu pedido.
+    </div>
+  </section>
+
+  <section class="about" id="nosotros">
+    <div class="eyebrow">MÁS QUE ROPA</div>
+    <h2>THIS IS DAXEN.</h2>
+    <p>Creemos que el estilo es una forma de expresión. DAXEN nace para quienes buscan personalidad, autenticidad y una identidad propia.</p>
+  </section>
+
+  <section class="contact" id="contacto">
+    <div class="eyebrow">¿LISTO PARA TU PRÓXIMO LOOK?</div>
+    <h2>LET'S TALK.</h2>
+    <p>Consulta nuestro catálogo completo y recibe información sobre disponibilidad y pedidos directamente por WhatsApp.</p>
+    <a class="whatsapp" href="https://wa.me/50683071066?text=Hola%20DAXEN%2C%20quiero%20ver%20el%20catalogo%20completo." target="_blank" rel="noopener">CONTACTAR POR WHATSAPP ↗</a>
+  </section>
+</main>
+
+<footer>
+  <strong>DAXEN.</strong>
+  <p style="margin-top:12px">DEFINE YOUR STYLE. © 2026 DAXEN OFFICIAL STORE.</p>
+</footer>
+
+</body>
+</html>
